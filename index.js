@@ -17,6 +17,12 @@ var json = {
             title: "Your birthdate:",
             isRequired: true
         }, {
+            name: "phone",
+            type: "text",
+            title: "Your phone number:",
+            placeHolder: "xxx-xxx-xxxx",
+            isRequired: true
+        }, {
             name: "color",
             type: "text",
             inputType: "color",
