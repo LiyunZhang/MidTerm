@@ -58,18 +58,6 @@ var json = {
                 "Toyota",
                 "Citroen"
             ]
-        }
-    ],
-    elements: [
-        {
-            type: "dropdown",
-            name: "country",
-            title: "Select the country...",
-            isRequired: true,
-            choicesByUrl: {
-                url: "https://restcountries.eu/rest/v2/all",
-                valueName: "name"
-            }
         }, {
             type: "panel",
             name: "panel_countriesByRegion",
@@ -91,8 +79,17 @@ var json = {
                     }
                 }
             ]
+        },{
+            type: "rating",
+            name: "satisfaction",
+            title: "How satisfied are you with the Result?",
+            minRateDescription: "Not Satisfied",
+            maxRateDescription: "Completely satisfied"
+        }, {
+            type: "comment",
+            name: "suggestions",
+            title: "What would make you more satisfied with the Result?"
         }
-
     ]
 };
 
