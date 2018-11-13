@@ -42,9 +42,7 @@ window.survey = new Survey.Model(json);
 survey
     .onComplete
     .add(function (result) {
-        document
-            .querySelector('#surveyResult')
-            .innerHTML = "result: " + JSON.stringify(result.data);
+     window.location = "https://liyunzhang.github.io/MidTerm_Survey1/thankyou1.html?";
     });
 
 $("#surveyElement").Survey({model: survey});
