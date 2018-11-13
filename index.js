@@ -52,7 +52,60 @@ var json = {
                 "Toyota",
                 "Citroen"
             ]
+        },{
+            type: "dropdown",
+            name: "car",
+            title: "What car are you driving?",
+            isRequired: true,
+            colCount: 0,
+            choices: [
+                "None",
+                "Ford",
+                "Vauxhall",
+                "Volkswagen",
+                "Nissan",
+                "Audi",
+                "Mercedes-Benz",
+                "BMW",
+                "Peugeot",
+                "Toyota",
+                "Citroen"
+            ]
         }
+    ],
+    elements: [
+        {
+            type: "dropdown",
+            name: "country",
+            title: "Select the country...",
+            isRequired: true,
+            choicesByUrl: {
+                url: "https://restcountries.eu/rest/v2/all",
+                valueName: "name"
+            }
+        }, {
+            type: "panel",
+            name: "panel_countriesByRegion",
+            title: "Show countries by region",
+            elements: [
+                {
+                    type: "dropdown",
+                    name: "region",
+                    title: "Select the region...",
+                    choices: ["Africa", "Americas", "Asia", "Europe", "Oceania"]
+                }, {
+                    type: "dropdown",
+                    name: "reg_country",
+                    title: "Select the country...",
+                    isRequired: true,
+                    choicesByUrl: {
+                        url: "https://restcountries.eu/rest/v2/region/{region}",
+                        valueName: "name"
+                    }
+                }
+            ]
+        }
+
     ]
 };
 
@@ -61,7 +114,9 @@ window.survey = new Survey.Model(json);
 survey
     .onComplete
     .add(function (result) {
-     window.location = "https://liyunzhang.github.io/MidTerm_Survey1/thankyou1.html?";
+        document
+            .querySelector('#surveyResult')
+            .innerHTML = "result: " + JSON.stringify(result.data);
     });
 
 $("#surveyElement").Survey({model: survey});
